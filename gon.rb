@@ -8,22 +8,20 @@ class Gon < Formula
   version "0.2.6"
   depends_on :macos
 
-  on_macos do
-    url "https://github.com/ConductorOne/gon/archive/refs/tags/v0.2.6.zip"
-    sha256 "bcb5f23dfd6f321a336b8c3604cbdd823b560cf03d817ab939e94131205fde5d"
+  url "https://github.com/ConductorOne/gon/releases/download/v0.2.6/gon_Darwin_x86_64.zip"
+  sha256 "fbc974b4ab49a46fa8c0af788771980034008822d97400c2f96035e33908fc4f"
 
-    def install
-      bin.install "gon"
-    end
+  def install
+    bin.install "gon"
+  end
 
-    if Hardware::CPU.arm?
-      def caveats
-        <<~EOS
-          The darwin_arm64 architecture is not supported for the Gon
-          formula at this time. The darwin_amd64 binary may work in compatibility
-          mode, but it might not be fully supported.
-        EOS
-      end
+  if Hardware::CPU.arm?
+    def caveats
+      <<~EOS
+        The darwin_arm64 architecture is not supported for the Gon
+        formula at this time. The darwin_amd64 binary may work in compatibility
+        mode, but it might not be fully supported.
+      EOS
     end
   end
 end
