@@ -5,11 +5,11 @@
 class Gon < Formula
   desc "Sign, notarize, and package macOS CLI applications written in any language."
   homepage ""
-  version "0.2.9"
+  version "0.2.10"
   depends_on :macos
 
-  url "https://github.com/ConductorOne/gon/releases/download/v0.2.9/gon-darwin-amd64.zip"
-  sha256 "1b34362abd1d092238c8120ca4c44a001f8df366ba465312546624fff22db97e"
+  url "https://github.com/ConductorOne/gon/releases/download/v0.2.10/gon-darwin-amd64.zip"
+  sha256 "75bb9ab5fb4213402d2eba9e6bb8a7418683af1e7bbdb2d154487c7be423ecd3"
 
   def install
     bin.install "gon"
@@ -23,5 +23,9 @@ class Gon < Formula
         mode, but it might not be fully supported.
       EOS
     end
+  end
+
+  test do
+    system "#{bin}/gon --help"
   end
 end
